@@ -26,7 +26,7 @@
   "config": {
     "forge": {
       "packagerConfig": {
-		  "icon": "favicon.ico"
+		  "icon": "favicon"
 	},
       "makers": [
         {
@@ -44,13 +44,11 @@
         {
           "name": "@electron-forge/maker-deb",
           "config": {
-            "icon": "favicon.ico"
           }
         },
         {
           "name": "@electron-forge/maker-rpm",
           "config": {
-            "icon": "favicon.ico"
           }
         }
       ]

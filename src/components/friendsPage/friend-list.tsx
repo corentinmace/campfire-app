@@ -1,7 +1,17 @@
+import Image from "next/image";
+import Link from "next/link";
 import DirectMessage from "@/components/friendsPage/dm";
+import sidenavLink from "@/components/sidenav/sidenav-link";
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
-export default function DirectMessageList() {
-    const dms = [
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComment, faUserMinus } from '@fortawesome/pro-solid-svg-icons'
+import FriendItem from "@/components/friendsPage/friend";
+
+export default function FriendList() {
+    const friends = [
         {"username": "Echo", "link": "/", "image": "/campfire/global/defaultPfp.jpg", "key": 0, "status": "disconnected"},
         {"username": "Kai", "link": "/", "image": "/campfire/global/defaultPfp.jpg", "key": 1, "status": "away"},
         {"username": "Kai", "link": "/", "image": "/campfire/global/defaultPfp.jpg", "key": 2, "status": "disconnected"},
@@ -25,9 +35,9 @@ export default function DirectMessageList() {
     ]
 
     return (
-        <div className={"h-full w-56 bg-neutral-200 dark:bg-neutral-700 p-4 md:rounded-2xl flex flex-col gap-4 overflow-scroll border-r-2 border-neutral-100 dark:border-neutral-900"}>
-            { dms.map((dm) => (
-                DirectMessage(dm)
+        <div className={"h-full w-full flex flex-col md:gap-4 overflow-scroll"}>
+            { friends.map((friend) => (
+                <FriendItem username={friend.username} status={friend.status} link={friend.link} image={friend.image} />
             ))}
         </div>
     );

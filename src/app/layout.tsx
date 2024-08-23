@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
 import sidenavLink from "@/components/sidenav/sidenav-link";
-
+import TopNav from "@/components/topnav/topnav";
 const inter = Inter({ subsets: ["latin"] });
 
 const servers = [
@@ -27,7 +27,10 @@ const servers = [
 ]
 
 export const metadata: Metadata = {
-  title: "Campfire | Talk with your friends",
+    title: {
+        template: 'Campfire | %s',
+        default: 'Campfire | Talk with your friends',
+    },
   description: "The new way to talk with all your friends.",
 };
 
@@ -50,9 +53,6 @@ export default function RootLayout({
                         ))
                     }
                 </div>
-
-        </div>
-        <div id="top-nav" className="w-screen left-[50px] md:left-[85px] top-0 fixed bg-neutral-200 dark:bg-neutral-700 h-12 md:h-[60px]">
 
         </div>
         <div className={"md:pt-[60px] pt-12 pl-[50px] md:pl-[85px] h-screen z-10"}>
